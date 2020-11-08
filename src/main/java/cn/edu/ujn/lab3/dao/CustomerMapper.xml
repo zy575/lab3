@@ -26,6 +26,28 @@
     from customer
     where cust_id = #{custId,jdbcType=INTEGER}
   </select>
+  <select id="findAllCustomer" parameterType="cn.edu.ujn.lab3.dao.Customer" resultMap="BaseResultMap">
+    select *
+    from customer 
+  </select>
+  <select id="findCustomerByCondition" parameterType="cn.edu.ujn.lab3.dao.Customer" resultMap="BaseResultMap">
+    select *
+    from customer 
+     <where>
+    	<if test='custName != null and custName != ""'>
+    		cust_name like concat('%',#{custName},'%')
+    	</if>
+    	<if test='custSource != null and custSource != ""'>
+    		AND cust_source = #{custSource,jdbcType=VARCHAR}
+    	</if>
+    	<if test='custIndustry != null and custIndustry != ""'>
+    		AND cust_industry = #{custIndustry,jdbcType=VARCHAR}
+    	</if>
+    	<if test='custLevel != null and custLevel != ""'>
+    		AND cust_level = #{custLevel,jdbcType=VARCHAR}
+    	</if>
+    </where>
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from customer
     where cust_id = #{custId,jdbcType=INTEGER}

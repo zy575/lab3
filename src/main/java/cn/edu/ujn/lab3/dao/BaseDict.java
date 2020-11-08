@@ -80,4 +80,12 @@ public class BaseDict {
     public void setDictMemo(String dictMemo) {
         this.dictMemo = dictMemo == null ? null : dictMemo.trim();
     }
+
+	@Override
+	public String toString() {
+		return "BaseDict [dictId=" + dictId + ", dictTypeCode=" + dictTypeCode + ", dictTypeName=" + dictTypeName
+				+ ", dictItemName=" + dictItemName + ", dictItemCode=" + dictItemCode + ", dictSort=" + dictSort
+				+ ", dictEnable=" + dictEnable + ", dictMemo=" + dictMemo + "]";
+	}
+    
 }

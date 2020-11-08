@@ -21,6 +21,22 @@
     from base_dict
     where dict_id = #{dictId,jdbcType=VARCHAR}
   </select>
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from base_dict
+    where dict_item_name = #{dictItemName,jdbcType=VARCHAR}
+  </select>
+   <select id="selectIdByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select dict_id
+    <include refid="Base_Column_List" />
+    from base_dict
+    where dict_item_name = #{dictItemName,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" parameterType="cn.edu.ujn.lab3.dao.BaseDict" resultMap="BaseResultMap">
+    select *
+    from base_dict
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from base_dict
     where dict_id = #{dictId,jdbcType=VARCHAR}

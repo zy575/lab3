@@ -1,5 +1,7 @@
 package cn.edu.ujn.lab3.dao;
 
+import java.util.List;
+
 import cn.edu.ujn.lab3.dao.Customer;
 
 public interface CustomerMapper {
@@ -10,6 +12,9 @@ public interface CustomerMapper {
     int insertSelective(Customer record);
 
     Customer selectByPrimaryKey(Integer custId);
+    
+    List<Customer> findAllCustomer();
+    List<Customer> findCustomerByCondition(Customer con);
 
     int updateByPrimaryKeySelective(Customer record);
 

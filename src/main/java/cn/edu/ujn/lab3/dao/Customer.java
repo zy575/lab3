@@ -2,6 +2,10 @@ package cn.edu.ujn.lab3.dao;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import cn.edu.ujn.lab3.core.service.IBaseDictService;
+
 public class Customer {
     private Integer custId;
 
@@ -132,4 +136,14 @@ public class Customer {
     public void setCustCreatetime(Date custCreatetime) {
         this.custCreatetime = custCreatetime;
     }
+
+	@Override
+	public String toString() {
+		return "Customer [custId=" + custId + ", custName=" + custName + ", custUserId=" + custUserId
+				+ ", custCreateId=" + custCreateId + ", custSource=" + custSource + ", custIndustry=" + custIndustry
+				+ ", custLevel=" + custLevel + ", custLinkman=" + custLinkman + ", custPhone=" + custPhone
+				+ ", custMobile=" + custMobile + ", custZipcode=" + custZipcode + ", custAddress=" + custAddress
+				+ ", custCreatetime=" + custCreatetime + "]";
+	}
+    
 }
